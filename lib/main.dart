@@ -1,4 +1,6 @@
 import 'package:animated_app/ui/view/home/home_view.dart';
+import 'package:animated_app/ui/view/onboarding/onboarding_view.dart';
+import 'package:animated_app/ui/view/onboarding/onboarding_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
       ),
       navigatorKey: StackedService.navigatorKey,
       onGenerateRoute: StackedRouter().onGenerateRoute,
-      home: const HomeView(),
+      home: OnboardingView(),
     );
   }
 }

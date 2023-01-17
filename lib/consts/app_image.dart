@@ -1,6 +1,6 @@
 class AppImage {
-  static const String avatarDefault = 'assets/avatars/avatar_default.jpg';
-  static const String background = 'assets/background/spline.png';
+  static const String avatarDefaultIcon = 'assets/avatars/avatar_default.jpg';
+  static const String splineImage = 'assets/backgrounds/spline.png';
   static const String appleBoxIcon = 'assets/icons/apple_box.svg';
   static const String arrowRightIcon = 'assets/icons/arrow_right.svg';
   static const String codeIcon = 'assets/icons/code.svg';
@@ -13,4 +13,12 @@ class AppImage {
   static const String hexagonIcon = 'assets/icons/hexagon.svg';
   static const String circleIcon = 'assets/icons/circle.svg';
   static const String triangleIcon = 'assets/icons/triangle.svg';
+  static const String riveButtonImage = 'assets/rive_assets/button.riv';
+  static const String riveCheckImage = 'assets/rive_assets/check.riv';
+  static const String riveConfettiImage = 'assets/rive_assets/confetti.riv';
+  static const String riveHouseImage = 'assets/rive_assets/house.riv';
+  static const String riveIconsImage = 'assets/rive_assets/icons.riv';
+  static const String riveMenuButtonImage =
+      'assets/rive_assets/menu_button.riv';
+  static const String riveShapesImage = 'assets/rive_assets/shapes.riv';
 }
