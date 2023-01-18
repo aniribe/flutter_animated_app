@@ -6,6 +6,12 @@ class StringConsts {
   static const String purchasePhrase =
       'Purchase includes access to 30+ courses, 240+ premium tutorials, 120+ hours of videos, source files and certificates.';
 
+  static const String accessPhrase =
+      'Access to 240+ hours of content. Learn design and code, by building real apps with Flutter and Swift.';
+  static const String signIn = 'Sign In';
+  static const String email = 'Email';
+  static const String password = 'Password';
+
   ///Fonts
   static const String poppinsFamily = 'Poppins';
 }

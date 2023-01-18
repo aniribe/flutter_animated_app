@@ -13,6 +13,7 @@ class AppImage {
   static const String hexagonIcon = 'assets/icons/hexagon.svg';
   static const String circleIcon = 'assets/icons/circle.svg';
   static const String triangleIcon = 'assets/icons/triangle.svg';
+  static const String passwordIcon = 'assets/icons/password.svg';
   static const String riveButtonImage = 'assets/rive_assets/button.riv';
   static const String riveCheckImage = 'assets/rive_assets/check.riv';
   static const String riveConfettiImage = 'assets/rive_assets/confetti.riv';
