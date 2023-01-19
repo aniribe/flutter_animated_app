@@ -29,7 +29,9 @@ class OnboardingView extends StatelessWidget {
             const BlurredFilter(),
             SafeArea(
               child: PageContent(
-                  buttonAnimationController: _buttonAnimationController),
+                model: model,
+                buttonAnimationController: _buttonAnimationController,
+              ),
             )
           ],
         ),

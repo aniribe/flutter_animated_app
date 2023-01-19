@@ -11,6 +11,8 @@ class StringConsts {
   static const String signIn = 'Sign In';
   static const String email = 'Email';
   static const String password = 'Password';
+  static const String or = 'OR';
+  static const String emailSignIn = 'Sign up with Email, Apple or Google';
 
   ///Fonts
   static const String poppinsFamily = 'Poppins';
