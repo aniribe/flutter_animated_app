@@ -38,46 +38,8 @@ class PageContent extends StatelessWidget {
             buttonAnimationController: buttonAnimationController,
             onTap: () {
               buttonAnimationController.isActive = true;
-              model.onStartButtonPressed();
-              // showGeneralDialog(
-              //   barrierDismissible: true,
-              //   barrierLabel: 'Sign In',
-              //   context: context,
-              //   pageBuilder: (context, _, __) => Center(
-              //     child: Container(
-              //       height: 620,
-              //       padding: const EdgeInsets.symmetric(
-              //           horizontal: 25, vertical: 32),
-              //       margin: const EdgeInsets.symmetric(horizontal: 16),
-              //       decoration: BoxDecoration(
-              //         color: Colors.white.withOpacity(0.94),
-              //         borderRadius: BorderRadius.circular(40),
-              //       ),
-              //       child: Scaffold(
-              //         backgroundColor: Colors.transparent,
-              //         body: Column(
-              //           children: const [
-              //             Text(
-              //               StringConsts.signIn,
-              //               style: TextStyle(
-              //                 fontSize: 34,
-              //                 fontFamily: StringConsts.poppinsFamily,
-              //               ),
-              //             ),
-              //             Padding(
-              //               padding: EdgeInsets.symmetric(vertical: 16),
-              //               child: Text(
-              //                 StringConsts.accessPhrase,
-              //                 textAlign: TextAlign.center,
-              //               ),
-              //             ),
-              //             SignInForm(),
-              //           ],
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              // );
+              Future.delayed(const Duration(milliseconds: 800),
+                  () => model.onStartButtonPressed());
             },
           ),
           const PromoText(),
