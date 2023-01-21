@@ -39,7 +39,7 @@ class PageContent extends StatelessWidget {
             onTap: () {
               buttonAnimationController.isActive = true;
               Future.delayed(const Duration(milliseconds: 800),
-                  () => model.onStartButtonPressed());
+                  () => model.onStartButtonPressedHandler());
             },
           ),
           const PromoText(),

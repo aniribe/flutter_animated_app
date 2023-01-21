@@ -3,6 +3,7 @@ import 'package:rive/rive.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../consts/app_image.dart';
+import '../../ui_helpers.dart';
 import 'components/blured_filter.dart';
 import 'components/page_content.dart';
 import 'components/splie_image_container.dart';
@@ -27,10 +28,16 @@ class OnboardingView extends StatelessWidget {
             ///Commented because of MAC
             // const RiveAnimation.asset(AppImage.riveShapesImage),
             const BlurredFilter(),
-            SafeArea(
-              child: PageContent(
-                model: model,
-                buttonAnimationController: _buttonAnimationController,
+            AnimatedPositioned(
+              top: model.isSignUpDialogShown ? -50 : 0,
+              height: screenHeight(context),
+              width: screenWidth(context),
+              duration: const Duration(milliseconds: 240),
+              child: SafeArea(
+                child: PageContent(
+                  model: model,
+                  buttonAnimationController: _buttonAnimationController,
+                ),
               ),
             )
           ],

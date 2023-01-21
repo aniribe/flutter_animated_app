@@ -7,10 +7,24 @@ import '../../../config/app.locator.dart';
 class OnboardingViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
 
+  bool isSignUpDialogShown = false;
+
+  Future<void> onStartButtonPressedHandler() async {
+    setIsDialogShownTo(true);
+    onStartButtonPressed();
+  }
+
   Future<void> onStartButtonPressed() async {
-    final response = await _dialogService.showCustomDialog(
-      variant: DialogType.signInForm,
-      barrierDismissible: true,
-    );
+    final response = await _dialogService
+        .showCustomDialog(
+          variant: DialogType.signInForm,
+          barrierDismissible: true,
+        )
+        .then((value) => setIsDialogShownTo(false));
+  }
+
+  void setIsDialogShownTo(bool value) {
+    isSignUpDialogShown = value;
+    notifyListeners();
   }
 }
