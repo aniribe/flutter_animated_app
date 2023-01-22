@@ -12,6 +12,7 @@ import 'onboarding_viewmodel.dart';
 class OnboardingView extends StatelessWidget {
   final RiveAnimationController _buttonAnimationController =
       OneShotAnimation('active', autoplay: false);
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   OnboardingView({Key? key}) : super(key: key);
 
@@ -19,6 +20,7 @@ class OnboardingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<OnboardingViewModel>.reactive(
       viewModelBuilder: () => OnboardingViewModel(),
+      onModelReady: (model) => model.onInit(_formKey),
       builder: (context, model, child) => Scaffold(
         body: Stack(
           children: [
@@ -37,6 +39,7 @@ class OnboardingView extends StatelessWidget {
                 child: PageContent(
                   model: model,
                   buttonAnimationController: _buttonAnimationController,
+                  formKey: _formKey,
                 ),
               ),
             )

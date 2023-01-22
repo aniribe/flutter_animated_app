@@ -9,7 +9,7 @@ import 'package:rive/rive.dart';
 import '../../../ui_helpers.dart';
 import '../../../widgets/buttons/animated_button.dart';
 import '../../../widgets/inputs/general_input.dart';
-import '../../../widgets/signin_form.dart';
+import '../../../widgets/signin_form/signin_form.dart';
 import '../onboarding_viewmodel.dart';
 import 'page_title_and_slogan.dart';
 import 'promo_text_section.dart';
@@ -17,9 +17,11 @@ import 'promo_text_section.dart';
 class PageContent extends StatelessWidget {
   final OnboardingViewModel model;
   final RiveAnimationController buttonAnimationController;
+  final GlobalKey<FormState> formKey;
 
   const PageContent({
     Key? key,
+    required this.formKey,
     required this.model,
     required this.buttonAnimationController,
   }) : super(key: key);
@@ -39,7 +41,7 @@ class PageContent extends StatelessWidget {
             onTap: () {
               buttonAnimationController.isActive = true;
               Future.delayed(const Duration(milliseconds: 800),
-                  () => model.onStartButtonPressedHandler());
+                  () => model.onStartButtonPressedHandler(formKey));
             },
           ),
           const PromoText(),

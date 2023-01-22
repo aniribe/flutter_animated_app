@@ -16,4 +16,10 @@ class StringConsts {
 
   ///Fonts
   static const String poppinsFamily = 'Poppins';
+
+  ///Trigger names for Rive animation
+  static const String checkTrigger = 'Check';
+  static const String errorTrigger = 'Error';
+  static const String resetTrigger = 'Reset';
+  static const String explosionTrigger = 'Trigger explosion';
 }

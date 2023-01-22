@@ -61,11 +61,18 @@ class _SignInDialogState extends State<_SignInDialog>
       child: SlideTransition(
         position: _animation as Animation<Offset>,
         child: AnimatedContainer(
-            height: 635,
-            width: 500,
-            duration: const Duration(seconds: 2),
-            child: SignInDialogContent(
-                request: widget.request, service: widget.service)),
+          height: 675,
+          width: 500,
+          duration: const Duration(seconds: 2),
+          child: SignInDialogContent(
+              request: widget.request,
+              service: widget.service,
+              isLoadingShown: widget.request.data.isLoadingShown,
+              updateIsShown: (value) {
+                widget.request.data.updateIsModalShown(value);
+                setState(() {});
+              }),
+        ),
       ),
     );
   }

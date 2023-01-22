@@ -8,12 +8,14 @@ class GeneralInput extends StatelessWidget {
   final String labelText;
   final String? icon;
   final bool obscureText;
+  final String? Function(String?)? validator;
 
   const GeneralInput({
     Key? key,
     required this.labelText,
     this.icon,
     this.obscureText = false,
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -27,6 +29,7 @@ class GeneralInput extends StatelessWidget {
         ),
         verticalSpace(7),
         TextFormField(
+          validator: validator,
           decoration: InputDecoration(
             filled: true,
             fillColor: Colors.white,

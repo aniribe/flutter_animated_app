@@ -5,18 +5,27 @@ import 'package:flutter/material.dart';
 import '../../../../../consts/app_colors.dart';
 import '../../../../../consts/string_consts.dart';
 import '../../../../ui_helpers.dart';
-import '../../../signin_form.dart';
+import '../../../signin_form/signin_form.dart';
 import 'or_line.dart';
 
 class MainContent extends StatelessWidget {
+  final GlobalKey<FormState> formKey;
+  final String? Function(String?)? emptyValidation;
+  final void Function(bool) updateIsShown;
+  final bool isLoadingShown;
+
   const MainContent({
     Key? key,
+    required this.formKey,
+    this.emptyValidation,
+    required this.updateIsShown,
+    required this.isLoadingShown,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 620,
+      height: 660,
       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 32),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(40),
@@ -31,7 +40,12 @@ class MainContent extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           verticalSpace(20),
-          const SignInForm(),
+          SignInForm(
+            formKey: formKey,
+            emptyValidation: emptyValidation,
+            updateIsShown: updateIsShown,
+            isLoadingShown: isLoadingShown,
+          ),
           verticalSpace(15),
           const OrLine(),
           verticalSpace(20),

@@ -7,19 +7,28 @@ import 'components/main_content.dart';
 class SignInDialogContent extends StatelessWidget {
   final DialogRequest request;
   final DialogService service;
+  final void Function(bool) updateIsShown;
+  final bool isLoadingShown;
 
   const SignInDialogContent({
     Key? key,
     required this.request,
     required this.service,
+    required this.updateIsShown,
+    required this.isLoadingShown,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(height: 635),
-        const MainContent(),
+        Container(height: 650),
+        MainContent(
+          formKey: request.data.formKey,
+          emptyValidation: request.data.emptyValidation,
+          updateIsShown: updateIsShown,
+          isLoadingShown: isLoadingShown,
+        ),
         AppCloseButton(
           onPressed: () =>
               service.completeDialog(DialogResponse(confirmed: false)),
