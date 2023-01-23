@@ -7,20 +7,23 @@ import '../../../consts/app_image.dart';
 import '../../../consts/string_consts.dart';
 import '../../ui_helpers.dart';
 import '../inputs/general_input.dart';
-import 'components/check_sign.dart';
+import '../utils/rive_utils.dart';
+import 'components/container_for_sign.dart';
 
 class SignInForm extends StatefulWidget {
   final GlobalKey<FormState> formKey;
   final String? Function(String?)? emptyValidation;
   final void Function(bool) updateIsShown;
+  final void Function() redirect;
   final bool isLoadingShown;
 
-  SignInForm({
+  const SignInForm({
     Key? key,
     required this.formKey,
     required this.emptyValidation,
     required this.updateIsShown,
     required this.isLoadingShown,
+    required this.redirect,
   }) : super(key: key);
 
   @override
@@ -34,14 +37,14 @@ class _SignInFormState extends State<SignInForm> {
   SMITrigger? confetti;
   bool isShowConfetti = false;
 
-  StateMachineController getRiveController(Artboard artboard) {
-    StateMachineController? controller =
-        StateMachineController.fromArtboard(artboard, 'State Machine 1');
-
-    artboard.addController(controller!);
-
-    return controller;
-  }
+  // StateMachineController getRiveController(Artboard artboard) {
+  //   StateMachineController? controller =
+  //       StateMachineController.fromArtboard(artboard, 'State Machine 1');
+  //
+  //   artboard.addController(controller!);
+  //
+  //   return controller;
+  // }
 
   void onSignInButtonPressedHandler() {
     setState(() {
@@ -60,6 +63,7 @@ class _SignInFormState extends State<SignInForm> {
               widget.updateIsShown(false);
             });
             confetti?.fire();
+            Future.delayed(const Duration(seconds: 1), () => widget.redirect());
           },
         );
       } else {
@@ -124,7 +128,8 @@ class _SignInFormState extends State<SignInForm> {
                   AppImage.riveCheckImage,
                   onInit: (artboard) {
                     StateMachineController controller =
-                        getRiveController(artboard);
+                        RiveUtils.getRiveController(artboard,
+                            stateMachineName: StringConsts.stateMachineTrigger);
                     check = controller.findSMI(StringConsts.checkTrigger);
                     error = controller.findSMI(StringConsts.errorTrigger);
                     reset = controller.findSMI(StringConsts.resetTrigger);
@@ -137,11 +142,14 @@ class _SignInFormState extends State<SignInForm> {
                 child: Transform.scale(
                   scale: 8,
                   child: RiveAnimation.asset(
-                    AppImage.riveCheckImage,
+                    AppImage.riveConfettiImage,
                     onInit: (artboard) {
                       StateMachineController controller =
-                          getRiveController(artboard);
-                      confetti = controller.findSMI(StringConsts.resetTrigger);
+                          RiveUtils.getRiveController(artboard,
+                              stateMachineName:
+                                  StringConsts.stateMachineTrigger);
+                      confetti =
+                          controller.findSMI(StringConsts.explosionTrigger);
                     },
                   ),
                 ),

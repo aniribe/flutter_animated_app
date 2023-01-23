@@ -22,4 +22,23 @@ class StringConsts {
   static const String errorTrigger = 'Error';
   static const String resetTrigger = 'Reset';
   static const String explosionTrigger = 'Trigger explosion';
+  static const String stateMachineTrigger = 'State Machine 1';
+  static const String homeArtboard = 'HOME';
+  static const String chatArtboard = 'CHAT';
+  static const String searchArtboard = 'SEARCH';
+  static const String timerArtboard = 'TIMER';
+  static const String bellArtboard = 'BELL';
+  static const String userArtboard = 'USER';
+  static const String homeStateMachineName = 'HOME_Interactivity';
+  static const String chatStateMachineName = 'CHAT_Interactivity';
+  static const String searchStateMachineName = 'SEARCH_Interactivity';
+  static const String timerStateMachineName = 'TIMER_Interactivity';
+  static const String bellStateMachineName = 'BELL_Interactivity';
+  static const String userStateMachineName = 'USER_Interactivity';
+  static const String chatTitle = 'Chat';
+  static const String homeTitle = 'Home';
+  static const String searchTitle = 'Search';
+  static const String timerTitle = 'Timer';
+  static const String bellTitle = 'Notification';
+  static const String userTitle = 'Profile';
 }

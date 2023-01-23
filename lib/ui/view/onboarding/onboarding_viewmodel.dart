@@ -4,10 +4,12 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../../config/app.locator.dart';
+import '../../../config/app.router.dart';
 import '../../../model/signup_model.dart';
 
 class OnboardingViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
+  final _navigationService = locator<NavigationService>();
 
   bool isSignUpDialogShown = false;
 
@@ -22,6 +24,7 @@ class OnboardingViewModel extends BaseViewModel {
       formKey: key,
       emptyValidation: emptyValidation,
       updateIsModalShown: setIsLoadingShownTo,
+      redirect: redirectToHome,
     );
   }
 
@@ -57,4 +60,7 @@ class OnboardingViewModel extends BaseViewModel {
     print('HERE: $value');
     // notifyListeners();
   }
+
+  Future<void> redirectToHome() async =>
+      await _navigationService.navigateTo(Routes.homeView);
 }

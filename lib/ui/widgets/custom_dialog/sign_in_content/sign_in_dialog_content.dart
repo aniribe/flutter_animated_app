@@ -28,6 +28,7 @@ class SignInDialogContent extends StatelessWidget {
           emptyValidation: request.data.emptyValidation,
           updateIsShown: updateIsShown,
           isLoadingShown: isLoadingShown,
+          redirect: request.data.redirect,
         ),
         AppCloseButton(
           onPressed: () =>

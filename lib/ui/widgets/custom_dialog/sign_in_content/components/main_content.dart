@@ -13,6 +13,7 @@ class MainContent extends StatelessWidget {
   final String? Function(String?)? emptyValidation;
   final void Function(bool) updateIsShown;
   final bool isLoadingShown;
+  final void Function() redirect;
 
   const MainContent({
     Key? key,
@@ -20,6 +21,7 @@ class MainContent extends StatelessWidget {
     this.emptyValidation,
     required this.updateIsShown,
     required this.isLoadingShown,
+    required this.redirect,
   }) : super(key: key);
 
   @override
@@ -45,6 +47,7 @@ class MainContent extends StatelessWidget {
             emptyValidation: emptyValidation,
             updateIsShown: updateIsShown,
             isLoadingShown: isLoadingShown,
+            redirect: redirect,
           ),
           verticalSpace(15),
           const OrLine(),

@@ -8,4 +8,5 @@ class AppColors {
   static const Color shadowColorDark = Colors.black;
   static const Color pink = Color(0xFFF77D8E);
   static const Color almostWhite = Color(0xFFF1F1F1);
+  static const Color blue = Color(0xFF81B4FF);
 }
